@@ -5,9 +5,17 @@ import {connect} from 'react-redux';
 const TodoList = ({todos, dispatch}) => (
   <View>
     {todos.map(todo => (
-      <Text key={todo}>{todo}</Text>
+      <Text
+        onPress
+        style={{textDecorationLine: todo.completed ? 'line-through' : 'none'}}
+        key={todo.id}>
+        {todo.text}
+      </Text>
     ))}
-    <Button title={'Adicionar todo'} onPress={() => dispatch({type: 'ADD_TODO', text: 'Novo todo'})} />
+    <Button
+      title={'Adicionar todo'}
+      onPress={() => dispatch({type: 'ADD_TODO', text: 'Novo todo'})}
+    />
   </View>
 );
 
