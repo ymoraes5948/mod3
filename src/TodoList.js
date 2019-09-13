@@ -6,7 +6,7 @@ const TodoList = ({todos, dispatch}) => (
   <View>
     {todos.map(todo => (
       <Text
-        onPress
+        onPress={() => dispatch({type: 'MARK_AS_COMPLETED', id: todo.id})}
         style={{textDecorationLine: todo.completed ? 'line-through' : 'none'}}
         key={todo.id}>
         {todo.text}
